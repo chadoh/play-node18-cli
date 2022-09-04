@@ -1,0 +1,15 @@
+{
+  "name": "play-node18-cli",
+  "version": "1.0.0",
+  "description": "Playing with NodeJS 18 features",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chad Ostrowski <221614+chadoh@users.noreply.github.com>",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.3.0"
+  }
+}
