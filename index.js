@@ -23,18 +23,45 @@ if(nodeV[0] < reqNodeV[0] || nodeV[1] < reqNodeV[1] || nodeV[2] < reqNodeV[2]) {
 }
 
 const options = {
-  'verbose': {
+  verbose: {
     type: 'boolean',
     short: 'v',
+    description: 'Use verbose output.',
   },
-  'color': {
+  color: {
     type: 'string',
     short: 'c',
+    description: 'Color to use. Accepts any string.',
   },
-  'times': {
+  lol: {
     type: 'string',
-    short: 't',
+    short: 'l',
+    default: 'haha',
+    description: `Laugh style to use. Default: "haha"`,
   },
+  help: {
+    type: 'boolean',
+    short: 'h',
+    description: 'Print this help documentation',
+  }
 }
 
-console.log(JSON.stringify(parseArgs({ input: process.argv.slice(2), options })))
+const help = `An example CLI built using NodeJS>=18.3.0 with 0 dependencies.
+
+Usage:
+
+    ./index.js -vc green -l haha
+
+Options:
+
+    ${JSON.stringify(options)}
+`
+
+const args = parseArgs({ input: process.argv.slice(2), options })
+
+if (args.values.help) {
+  console.log(help)
+  process.exit(0)
+}
+
+console.log('You called it correctly! Parsed arguments:', JSON.stringify(args))
